@@ -1,0 +1,17 @@
+<app-notifications></app-notifications>
+<mat-accordion class="mat-expansion-panel mat-app-background">
+  <mat-expansion-panel class="mat-expansion-panel" *ngFor="let book of bookList">
+    <mat-expansion-panel-header class="mat-expansion-panel-header">
+      <mat-panel-title class="mat-expansion-panel-header-title">
+       {{book.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-book-details [book]="book"
+                      (bookUpdated)="bookUpdated($event)"
+                      (bookDeleted)="bookDeleted($event)">
+    </app-book-details>
+  </mat-expansion-panel>
+  <mat-action-row class="mat-action-row">
+    <button mat-raised-button color="accent" (click)="addBook()">New</button>
+  </mat-action-row>
+</mat-accordion>

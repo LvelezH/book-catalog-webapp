@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>{{book.name}}</h2>
+<form class="details-form">
+  <mat-dialog-content [formGroup]="bookForm">
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>ISBN</mat-label>
+      <input matInput formControlName="isbn" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" id="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genre" required>
+        <mat-option *ngFor="let genre of genreKeys" [value]="genre">
+          {{genres[genre]}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" id="author" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" id="description"> </textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>Language</mat-label>
+      <input matInput formControlName="language" id="language">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="margin-right">
+      <mat-label>Number of pages</mat-label>
+      <input matInput formControlName="numPages" id="numPages">
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button  [disabled]="!bookForm.valid" mat-raised-button color="accent" (click)="updateBook()">Save changes</button>
+    <button  mat-raised-button color="warn" (click)="deleteBook()">Delete</button>
+  </mat-dialog-actions>
+</form>
