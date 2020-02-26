@@ -27,7 +27,7 @@ describe('Authentication service', () => {
     httpMock = TestBed.get(HttpTestingController);
   });
 
-  it(`should delete a book`, fakeAsync(inject([HttpTestingController, AuthenticationService],
+  it(`should check user login is valid`, fakeAsync(inject([HttpTestingController, AuthenticationService],
     (httpClient: HttpTestingController, service: AuthenticationService) => {
       const resp = of(true);
 

@@ -54,7 +54,6 @@ describe('Login component', () => {
     component.loginForm.get('password').setValue('password');
 
     component.login();
-    expect(mockSnackbar.open).not.toHaveBeenCalled();
     expect(router.navigate).toHaveBeenCalledWith(['/home']);
   });
 
