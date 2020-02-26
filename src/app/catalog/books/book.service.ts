@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Book} from './book';
 import {throwError} from 'rxjs';
-import {catchError, retry} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,6 @@ export class BookService {
   public getBooks() {
     return this.http.get<Book[]>(this.baseUrl)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       );
   }
@@ -22,7 +21,6 @@ export class BookService {
   public getBookById(id: string) {
     return this.http.get(this.baseUrl + id)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       );
   }
@@ -30,7 +28,6 @@ export class BookService {
   public createBook(book: Book) {
     return this.http.post(this.baseUrl, book)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       );
   }
@@ -38,7 +35,6 @@ export class BookService {
   public updateBook(book: Book) {
     return this.http.put<Book>(this.baseUrl, book)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       );
   }
@@ -46,12 +42,11 @@ export class BookService {
   public deleteBook(id: string) {
     return this.http.delete(this.baseUrl + id)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       );
   }
 
-  private handleError(error: HttpErrorResponse) {
+  public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {

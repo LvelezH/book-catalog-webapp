@@ -3,7 +3,6 @@ import {BookService} from './book.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NewBookComponent} from './newbook.component';
-import {Book} from './book';
 
 @Component({
   selector: 'app-book-list',
@@ -23,7 +22,6 @@ export class BooksListComponent implements OnInit {
 
   bookUpdated(book: any) {
     this.bookService.updateBook(book).subscribe((data => {
-      console.log(data);
       if (data) {
         this.matSnackBar.open('Book saved!', 'Ok');
         this.refreshBookList();

@@ -41,7 +41,7 @@
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button  [disabled]="!bookForm.valid" mat-raised-button color="accent" (click)="updateBook()">Save changes</button>
-    <button  mat-raised-button color="warn" (click)="deleteBook()">Delete</button>
+    <button  [disabled]="!bookForm.valid" mat-raised-button color="accent" id="saveButton" (click)="updateBook()">Save changes</button>
+    <button  mat-raised-button color="warn" id="deleteButton" (click)="deleteBook()">Delete</button>
   </mat-dialog-actions>
 </form>

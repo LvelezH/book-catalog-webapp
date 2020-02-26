@@ -1,7 +1,7 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {webSocket} from 'rxjs/webSocket';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import {NotificationsPopupComponent} from './notifications.popup.component';
+import {WebsocketService} from './websocket.service';
 
 @Component({
   selector: 'app-notifications',
@@ -9,24 +9,22 @@ import {NotificationsPopupComponent} from './notifications.popup.component';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  ws =  webSocket({
-    url: 'ws://localhost:8080/notifications',
-    deserializer: msg => msg.data
-  });
-
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+              private websocketService: WebsocketService) {
   }
 
+  msg: string;
+
   ngOnInit() {
-    this.ws.subscribe({
-      next : (data) => {this.openNotificationPopup(data); },
+    this.websocketService.getSocket().subscribe({
+      next : (data) => { this.msg = data, this.openNotificationPopup(data); },
       error : (err) => console.log(err),
       complete : () => {}
     });
   }
 
   openNotificationPopup(message: string): void {
-    const dialogRef = this.dialog.open(NotificationsPopupComponent, {
+    this.dialog.open(NotificationsPopupComponent, {
       width: '250px',
       data: message
     });

@@ -31,6 +31,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {WebsocketService} from './notifications/websocket.service';
 
 @NgModule({
   declarations: [
@@ -68,11 +69,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatTabsModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthenticationGuard,
-    StorageService
+    StorageService,
+    WebsocketService
   ],
   bootstrap: [AppComponent]
 })
