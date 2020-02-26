@@ -21,7 +21,7 @@ import {NewBookComponent} from './catalog/books/newbook.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './authentication/login.component';
 import {MatCardModule} from '@angular/material/card';
-import {AuthenticationGuard} from './authentication/AuthenticationGuard';
+import {AuthenticationGuard} from './authentication/authentication.guard';
 import {StorageService} from './authentication/storage.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NotificationsComponent} from './notifications/notifications.component';
