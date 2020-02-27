@@ -5,8 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Front end that consumes API https://github.com/LvelezH/book-catalog-api to create a web application to manage
 a catalog of books.
 
-###Requirements
-In this section we the scenarios required in the app wil be described:
+##Requirements
+In this section we will describe the scenarios defining the application functionality
 
 ```
 Scenario: Log in in the application
