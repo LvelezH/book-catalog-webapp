@@ -1,11 +1,7 @@
-aligner {
+.aligner {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url(https://i.pinimg.com/originals/63/70/17/637017cf799717a7fc1bab125b3a5253.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
 }

@@ -3,8 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-notifications-popup',
-  templateUrl: 'notifications.popup.component.html',
-  styleUrls: ['./notifications.popup.component.css']
+  templateUrl: 'notifications.popup.component.html'
 })
 export class NotificationsPopupComponent {
 

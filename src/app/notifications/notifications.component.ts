@@ -5,8 +5,7 @@ import {WebsocketService} from './websocket.service';
 
 @Component({
   selector: 'app-notifications',
-  templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.css']
+  templateUrl: './notifications.component.html'
 })
 export class NotificationsComponent implements OnInit {
   constructor(public dialog: MatDialog,

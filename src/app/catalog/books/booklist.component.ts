@@ -6,8 +6,7 @@ import {NewBookComponent} from './newbook.component';
 
 @Component({
   selector: 'app-book-list',
-  templateUrl: './booklist.component.html',
-  styleUrls: ['./booklist.component.css']
+  templateUrl: './booklist.component.html'
 })
 export class BooksListComponent implements OnInit {
 
