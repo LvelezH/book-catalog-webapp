@@ -1,0 +1,20 @@
+[
+  {
+    "isbn": "1234",
+    "name": "Los pilares de la tierra",
+    "genre": "ADVENTURE",
+    "author": "Ken Follet",
+    "description": "Great book",
+    "language": "English",
+    "numPages": 1120
+  },
+  {
+    "isbn": "2121",
+    "name": "20 sombras de Grey",
+    "genre": "HUMOR",
+    "author": "Dont remember",
+    "description": "Este libro es malisimo pero te ries",
+    "language": "Spanish",
+    "numPages": 500
+  }
+]

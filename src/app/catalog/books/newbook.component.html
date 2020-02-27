@@ -3,17 +3,17 @@
 <mat-dialog-content [formGroup]="bookForm">
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>ISBN</mat-label>
-    <input matInput formControlName="isbn" required>
+    <input matInput formControlName="isbn" required id="newisbnInput">
   </mat-form-field>
 
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>Name</mat-label>
-    <input matInput formControlName="name" id="name" required>
+    <input matInput formControlName="name" id="newname" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>Genre</mat-label>
-    <mat-select formControlName="genre" required>
+    <mat-select formControlName="genre" required id="genreSelect">
       <mat-option *ngFor="let genre of genreKeys" [value]="genre">
         {{genres[genre]}}
       </mat-option>
@@ -22,25 +22,25 @@
 
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>Author</mat-label>
-    <input matInput formControlName="author" id="author" required>
+    <input matInput formControlName="author" id="newauthor" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>Description</mat-label>
-    <input matInput formControlName="description" id="description">
+    <input matInput formControlName="description" id="newdescription">
   </mat-form-field>
 
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>Language</mat-label>
-    <input matInput formControlName="language" id="language">
+    <input matInput formControlName="language" id="newlanguage">
   </mat-form-field>
 
   <mat-form-field appearance="fill"class="margin-right">
     <mat-label>Number of pages</mat-label>
-    <input matInput formControlName="numPages" id="numPages">
+    <input matInput formControlName="numPages" id="newnumPages">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button [disabled]="!bookForm.valid" mat-raised-button color="accent" (click)="save()">Save</button>
+  <button [disabled]="!bookForm.valid" mat-raised-button color="accent" id="newBookButton" (click)="save()">Save</button>
   <button mat-raised-button color="warn" (click)="close()">Cancel</button>
 </mat-dialog-actions>

@@ -3,7 +3,7 @@
   <mat-dialog-content [formGroup]="bookForm">
     <mat-form-field appearance="fill" class="margin-right">
       <mat-label>ISBN</mat-label>
-      <input matInput formControlName="isbn" readonly>
+      <input matInput formControlName="isbn" readonly id="isbnInput">
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="margin-right">
@@ -13,7 +13,7 @@
 
     <mat-form-field appearance="fill" class="margin-right">
       <mat-label>Genre</mat-label>
-      <mat-select formControlName="genre" required>
+      <mat-select formControlName="genre" required id="genre">
         <mat-option *ngFor="let genre of genreKeys" [value]="genre">
           {{genres[genre]}}
         </mat-option>
