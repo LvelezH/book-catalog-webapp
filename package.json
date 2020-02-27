@@ -11,6 +11,7 @@
     "build:prod": "ng build --prod",
     "test": "ng test --watch=false --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test",
+    "cy:run": "cypress run",
     "build:ci": "npm run clean && npm run test && npm run build:prod"
   },
   "private": true,
