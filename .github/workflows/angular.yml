@@ -1,29 +1,15 @@
-name: CI
-
+name: Build and End-to-end tests
 on: [push]
-
 jobs:
-  build:
-
+  cypress-run:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
 
-      - name: Cache node modules
-        uses: actions/cache@v1
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: npm ci and npm run build
-        run: |
-          npm ci
-          npm run build:ci
+          build: npm run build
+          start: npm start
+          wait-on: http://localhost:4200
