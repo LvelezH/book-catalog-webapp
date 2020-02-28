@@ -1,47 +1,6 @@
-describe('Book list test', () => {
-  it('Book list is correctly loaded', () => {
-    // Given the user is logged in and a list of books
-    cy.visit('http://localhost:4200');
-    cy.clearLocalStorage();
-
-    cy.server();
-    cy.route({
-      method: 'POST',
-      url: '/users/',
-      response: [true]
-    });
-
-    cy.route({
-      method: 'GET',
-      url: 'http://localhost:8080/catalog/books/',
-      response: 'fixture:books.json'
-    });
-
-    cy.route({
-      method: 'PUT',
-      url: 'http://localhost:8080/catalog/books/',
-      response: 'fixture:book.json'
-    });
-
-    cy.route({
-      method: 'POST',
-      url: 'http://localhost:8080/catalog/books/',
-      response: 'fixture:book.json'
-    });
-
-    cy.get('#usernameInput')
-      .type('admin')
-      .should('have.value', 'admin');
-
-    cy.get('#passwordInput')
-      .type('admin')
-      .should('have.value', 'admin');
-
-    cy.get('.btn-block').click();
-
-    // Then the book list is loaded
-    cy.url().should('eq', 'http://localhost:4200/catalog');
-
+describe('Add book test', () => {
+  it('Book is correctly added', () => {
+    // Given the user is logged in
     // When the user clicks in new book button
     cy.get('#addBookButton').click();
 
