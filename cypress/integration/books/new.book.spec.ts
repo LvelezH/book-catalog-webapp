@@ -11,7 +11,9 @@ describe('Add book test', () => {
     cy.get('#newisbnInput').type('ISBN');
     cy.get('#newname').type('Mucho amor y tal');
     cy.get('#genreSelect').click();
-    cy.get('#mat-option-53').click();
+    cy.get('mat-option')
+      .contains('Romance')
+      .click();
     cy.get('#newauthor').type('Corin Tellado');
     cy.get('#newdescription').type('Classic!!');
     cy.get('#newlanguage').type('Spanish');
